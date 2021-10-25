@@ -10,8 +10,8 @@
       <% gossips.each_with_index do |gossip, id| %>
         <br/>
         <a class='gossip-link' href='/gossips/<%= id %>'>
-          <div><%= gossip.author %></div>
-          <div><%= gossip.content %></div>
+          <div><%=ERB::Util.h gossip.author %></div>
+          <div><%=ERB::Util.h gossip.content %></div>
         </a>
       <% end %>
     </div>

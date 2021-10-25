@@ -7,8 +7,8 @@
     <div class="card">
       <h1>Page potin</h1>
       <h3>Voici la page du potin n°<%= gossip_id %></h3>
-      <p>Son auteur : <%= gossip.author  %></p>
-      <p>Le contenu du potin : <%= gossip.content %>  </p>
+      <p>Son auteur : <%=ERB::Util.h gossip.author  %></p>
+      <p>Le contenu du potin : <%=ERB::Util.h gossip.content %>  </p>
       <a href='/gossips/<%= gossip_id %>/edit/' class='edit_btn'>Editer le potin</a><br/>
       <a href='/' class='home_btn'>Revenir à la page des potins</a>
       <% if comments == 'No comment' %>
@@ -18,8 +18,8 @@
           <tbody>
             <% comments.each do |comment| %>
               <tr class="comment">
-                <td class="comment_author"><%= comment.author %></td>
-                <td class="comment_content"><%= comment.content %></td>
+                <td class="comment_author"><%=ERB::Util.h comment.author %></td>
+                <td class="comment_content"><%=ERB::Util.h comment.content %></td>
               </tr>
             <% end %>
           </tbody>
