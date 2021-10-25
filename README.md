@@ -6,7 +6,11 @@
 
 ## Aperçu
 
-Jeu de morpion codé en Ruby lors du jour 19 de THP.
+Site du petit cachottier, codé en sinatra lors du jour 21 de THP.
+
+## [Live Site](https://petit-cachottier.herokuapp.com/)
+
+[![screenshot](./screenshot.png)](https://petit-cachottier.herokuapp.com/)
 
 ## Installation et lancement
 
