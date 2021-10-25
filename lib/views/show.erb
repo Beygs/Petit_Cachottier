@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Potin n°<%= gossip_id %></title>
+  </head>
+  <body>
+    <h1>Page potin</h1>
+    <h3>Voici la page du potin n°<%= gossip_id %></h3>
+    <p>Son auteur : <%= gossip.author  %></p>
+    <p>Le contenu du potin : <%= gossip.content %>  </p>
+
+    <a href='/gossips/<%= gossip_id %>/edit/'>Editer le potin</a><br/>
+    <a href='/'>Revenir à la page des potins</a>
+    <% if comments == 'No comment' %>
+      <p>Pas de commentaires pour le moment</p>
+    <% else %>
+      <% comments.each do |comment| %>
+        <%= comment.author %><br/>
+        <%= comment.content %>
+      <% end %>
+    <% end %>
+    <form action='/gossips/<%= gossip_id %>/comment/' method='POST'>
+      <h4>Ajouter un commentaire</h4>
+      Nom : <input type='text' name='comment_author'/><br/>
+      Commentaire : <input type='text' name='comment_content'/><br/>
+      <input type='submit'/>
+    </form>
+  </body>
+</html>
