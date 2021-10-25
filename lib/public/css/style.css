@@ -60,6 +60,13 @@ body {
   border: .3rem solid transparent;
 }
 
+@supports (scrollbar-color: blue red) {
+  * {
+    scrollbar-color: var(--quick-silver) transparent;
+    scrollbar-width: thin;
+  }
+}
+
 .card {
   display: flex;
   align-items: center;
@@ -106,7 +113,7 @@ a {
 }
 
 .edit_btn {
-  margin-bottom: .1em;
+  margin-bottom: .5em;
   background: var(--brick-red);
 }
 
