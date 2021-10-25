@@ -1,28 +1,38 @@
 <html>
   <head>
     <title>Potin n°<%= gossip_id %></title>
+    <link rel='stylesheet' href='/css/style.css'>
   </head>
   <body>
-    <h1>Page potin</h1>
-    <h3>Voici la page du potin n°<%= gossip_id %></h3>
-    <p>Son auteur : <%= gossip.author  %></p>
-    <p>Le contenu du potin : <%= gossip.content %>  </p>
-
-    <a href='/gossips/<%= gossip_id %>/edit/'>Editer le potin</a><br/>
-    <a href='/'>Revenir à la page des potins</a>
-    <% if comments == 'No comment' %>
-      <p>Pas de commentaires pour le moment</p>
-    <% else %>
-      <% comments.each do |comment| %>
-        <%= comment.author %><br/>
-        <%= comment.content %>
+    <div class="card">
+      <h1>Page potin</h1>
+      <h3>Voici la page du potin n°<%= gossip_id %></h3>
+      <p>Son auteur : <%= gossip.author  %></p>
+      <p>Le contenu du potin : <%= gossip.content %>  </p>
+      <a href='/gossips/<%= gossip_id %>/edit/' class='edit_btn'>Editer le potin</a><br/>
+      <a href='/' class='home_btn'>Revenir à la page des potins</a>
+      <% if comments == 'No comment' %>
+        <p>Pas de commentaires pour le moment</p>
+      <% else %>
+        <table>
+          <tbody>
+            <% comments.each do |comment| %>
+              <tr class="comment">
+                <td class="comment_author"><%= comment.author %></td>
+                <td class="comment_content"><%= comment.content %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       <% end %>
-    <% end %>
-    <form action='/gossips/<%= gossip_id %>/comment/' method='POST'>
-      <h4>Ajouter un commentaire</h4>
-      Nom : <input type='text' name='comment_author'/><br/>
-      Commentaire : <input type='text' name='comment_content'/><br/>
-      <input type='submit'/>
-    </form>
+      <form action='/gossips/<%= gossip_id %>/comment/' method='POST' autocomplete='off'>
+        <h4>Ajouter un commentaire</h4>
+        <label for='comment_author'>Nom :</label> 
+        <input type='text' name='comment_author' id='comment_author' required/><br/>
+        <label for='comment_content'>Commentaire :</label> 
+        <input type='text' name='comment_content' id='comment_content' required/><br/>
+        <input type='submit' class='submit-btn' value='Commenter'/>
+      </form>
+    </div>
   </body>
 </html>

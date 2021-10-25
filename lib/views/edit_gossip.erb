@@ -1,13 +1,17 @@
 <html>
   <head>
-    <title>Créer un potin</title>
+      <title>Editer un potin</title>
+      <link rel='stylesheet' href='/css/style.css'>
   </head>
   <body>
-    <h1>Crée un potin !</h1>
-    <p>Balance ton potin via le formulaire ci-dessous</p>
-    <form action='/gossips/<%= gossip_id %>/edit/' method='POST'>
-      Saisi ici ton nom : <input type='text' name='gossip_author'/><br/>
-      Balance ton potin : <input type='text' name='gossip_content'/><br/>
-      <input type='submit'/>
-    </form>
+    <div class="card">
+      <h1>Edite un potin !</h1>
+      <p>Modifie ton potin via le formulaire ci-dessous</p>
+      <form action='/gossips/<%= gossip_id %>/edit/' method='POST' autocomplete='off'>
+        Saisis ici ton nom : <input type='text' name='gossip_author' required/><br/>
+        Balance ton potin : <input type='text' name='gossip_content' required/><br/>
+        <input type='submit' class='submit-btn' value='Editer le potin'/>
+      </form>
+    </div>
   </body>
+</html>

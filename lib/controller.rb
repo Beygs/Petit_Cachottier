@@ -33,6 +33,7 @@ class ApplicationController < Sinatra::Base
 
   post '/gossips/:id/comment/' do
     Comment.new(params[:comment_author], params[:comment_content]).save(params[:id])
+    redirect "/gossips/#{params[:id]}"
   end
 end
 

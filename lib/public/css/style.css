@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  --quick-silver: #a9a09e80;
+  --dim-gray: #6C6360;
+  --eerie-black: #191716;
+  --goldenroad: #e6af2e;
+  --lime-green: #51cb20;
+  --maximum-purple: #7f2982;
+  --brick-red: #c83e4d;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(140deg, rgba(127,41,130,1) 0%, rgba(200,62,77,1) 33%, rgba(230,175,46,1) 66%, rgba(81,203,32,1) 100%);
+  background-size: 500% 500%;
+  animation: gradient 20s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+  border: none;
+  margin: 2rem 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--quick-silver);
+  background-clip: padding-box;
+  
+  border-radius: 2rem;
+  border: .3rem solid transparent;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  z-index: 1;
+  max-height: 70vh;
+  min-width: 60%;
+  overflow: auto;
+}
+
+h1 {
+  margin: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--eerie-black)
+}
+
+.new-gossip-link,
+.home_btn,
+.edit_btn,
+.submit-btn {
+  position: relative;
+  border: 1px solid transparent;
+  background: var(--goldenroad);
+  color: white;
+  padding: 1em;
+  border-radius: 5em;
+  transition: .3s ease;
+  margin: 2rem;
+}
+
+.new-gossip-link:hover,
+.home_btn:hover,
+.submit-btn:hover {
+  background: white;
+  border: 1px solid var(--goldenroad);
+  color: var(--goldenroad)
+}
+
+.edit_btn {
+  margin-bottom: .1em;
+  background: var(--brick-red);
+}
+
+.edit_btn:hover {
+  background: white;
+  border: 1px solid var(--brick-red);
+  color: var(--brick-red);
+}
+
+.home_btn {
+  margin-top: 0;
+}
+
+.gossip-link  {
+  position: relative;
+  margin: .5em;
+  padding-bottom: 0.1em;
+}
+
+.gossip-link div:first-child {
+  color: var(--dim-gray);
+  margin: .1em;
+}
+
+.gossip-link::after {
+  content: '';
+  position: absolute;
+  transition: .3s;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--goldenroad);
+}
+
+.gossip-link:hover::after {
+  width: 100%;
+}
+
+.card p {
+  margin: 1em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+form h4 {
+  margin: 1.8em;
+}
+
+form input {
+  margin: 1em;
+  padding: .5em 1.2em;
+  border-radius: 2em;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  box-shadow: var(--maximum-purple) 0px 0px 0px 2px inset, var(--lime-green) 0 0, var(--goldenroad) 0 0, var(--brick-red) 0 0;
+  transition: .3s;
+}
+
+form input:hover,
+form input:focus {
+  box-shadow: var(--maximum-purple) 0px 0px 0px 2px inset, var(--lime-green) 0 2px, var(--goldenroad) 0 4px, var(--brick-red) 0 6px;
+  border: none;
+  cursor: text;
+}
+
+.submit-btn {
+  box-shadow: none;
+  margin-top: 0;
+}
+
+.submit-btn:hover {
+  box-shadow: none;
+  cursor: pointer;
+}
+
+table {
+  table-layout: auto;
+  border-spacing: .8em;
+  line-height: 1.2em;
+  text-align: left;
+  margin: 1rem;
+  width: 80%;
+}
+
+.comment_author {
+  color: var(--dim-gray);
+  width: 40%;
+}

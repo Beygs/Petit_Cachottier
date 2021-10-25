@@ -1,17 +1,20 @@
 <html>
   <head>
     <title>The Gossip Project</title>
+    <link rel='stylesheet' href='/css/style.css'>
   </head>
   <body>
-    <h1>Mon super site de gossip, depuis le dossier views !</h1>
-    <a href='/gossips/new'>Créer un nouveau gossip</a>
-    <% gossips.each_with_index do |gossip, id| %>
-      </br>
-      <a href='/gossips/<%= id %>'>
-        <%= gossip.author %>
-        <%= gossip.content %>
-      </a>
-    <% end %>
+    <div class="card">
+      <h1>Petit cachottier</h1>
+      <a href='/gossips/new' class='new-gossip-link'>Créer un nouveau gossip</a>
+      <% gossips.each_with_index do |gossip, id| %>
+        <br/>
+        <a class='gossip-link' href='/gossips/<%= id %>'>
+          <div><%= gossip.author %></div>
+          <div><%= gossip.content %></div>
+        </a>
+      <% end %>
+    </div>
   </body>
 </html>
 
