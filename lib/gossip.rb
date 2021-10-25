@@ -26,17 +26,6 @@ class Gossip
     all[gossip_id]
   end
 
-  def self.delete_gossip(gossip_id)
-    all_gossips = all
-    all_gossips.delete_at(gossip_id)
-    CSV.open('./db/gossips.csv', 'w')
-    all_gossips.each do |gossip|
-      CSV.open('./db/gossips.csv', 'a') do |csv|
-        csv << [gossip.author, gossip.content]
-      end
-    end
-  end
-
   def self.edit_gossip(gossip_id, gossip)
     all_gossips = all
     all_gossips[gossip_id] = gossip
